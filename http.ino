@@ -27,8 +27,6 @@ if(WiFi.status() == WL_CONNECTED)
   Serial.print("HTTP Get ...\n");
   int httpcode=http.GET();
 
-  if(httpcode>0)
-  {
     Serial.printf("[HTTP] GET... code:%d\n",httpcode);
 
     if(httpcode==HTTP_CODE_OK)
@@ -39,11 +37,10 @@ if(WiFi.status() == WL_CONNECTED)
     }
     else
     {
-      Serial.printf("[HTTP] GET Failed, Error:%s",http.errorToString(httpcode).c_str());
+      Serial.printf("[HTTP] GET Failed, Error:%d",httpcode);
       
     }
     http.end();
-  }
   delay(15000);
 }
 }
